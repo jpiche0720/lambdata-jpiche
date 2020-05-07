@@ -7,7 +7,7 @@ TODO
 
 ## Usage
 '''py
-
+from 
 p_true_prior = .001
 false_positive_rate= .05
 true_positive_rate = 1
