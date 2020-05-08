@@ -1,6 +1,17 @@
 # Probability of True Given a Positive Test Result
 
 def prob_true_given_positive(p_true_prior, false_positive_rate,true_positive_rate):
+  '''
+  
+  parameters:
+          - probability of being true prior to test, a belief of the general population
+          - false positive rate
+          - true positive rate
+
+  return: 
+          - the probability of being true given a positive test result
+          - the number of tests to complete to be confident in the result
+  '''
   probs = []
   complement = 1 - p_true_prior
   a = true_positive_rate*p_true_prior
