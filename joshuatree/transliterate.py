@@ -5,7 +5,7 @@
 def state_abbreviations(X):
     '''    
     parameters: 
-                - list/series of USA state abbreviations
+                - series of USA state abbreviations with the column name 'abbrev'
     return: 
                 - a pandas.Series object of the spelled out state names
     '''

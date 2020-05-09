@@ -1,4 +1,4 @@
-
+# Robot Class
 
 
 class Brain():
@@ -8,11 +8,11 @@ class Brain():
         self.computer = computer
         self.controller = controller
 
-    def location(self):
-        print(f'Locating axis... {self.imu}')
+    def locate(self):
+        print(f'Locating axis... with {self.imu}')
 
-    def measurement(self):
-        print(f'Measuring... {self.range_find}')
+    def measure(self):
+        print(f'Measuring... with {self.range_find}')
     
     def calculate(self):
         print(f'Calculating Trajectory...with {self.computer}')

@@ -1,2 +1,2 @@
-from pandas import DataFrame
+import pandas
 
