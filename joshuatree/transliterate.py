@@ -2,13 +2,13 @@
 
 # abbreviation dictionaries
 
-def state_abbreviations(data):
-'''    
+def state_abbreviations(X):
+    '''    
     parameters: 
                 - list/series of USA state abbreviations
     return: 
                 - a pandas.Series object of the spelled out state names
-'''
+    '''
     
     state_abv_dict = {'al':'Alabama','ak':'Alaska','az':'Arizona','ar':'Arkansas','ca':'California',
                       'co':'Colorado','ct':'Connecticut','de':'Delaware','dc':'District of Columbia',
@@ -22,14 +22,17 @@ def state_abbreviations(data):
                       'tn':'Tennessee','tx':'Texas','ut':'Utah','vt':'Vermont','va':'Virginia',
                       'wa':'Washington','wv':'West Virginia','wi':'Wisconsin','wy':'Wyoming','pr':'Puerto Rico'}
     
+    
     X = X.copy()
-    X = pandas.Series(data)
-    X = X.str.lower()
-    X['name'] = X.map(state_abv_dict)
+    X = X['abbrev'].str.lower()
+    X = X.map(state_abv_dict)
     return X
 
 if __name__ == '__main__':
-    df = Dataframe({'abbrev':["CA","CO","CT","DC","TX"]})
+    from pandas import DataFrame
+    from pandas import Series
+    df = DataFrame({'abbrev':["CA","CO","CT","DC","TX"]})
     print(df.head())
     
     df2 = state_abbreviations(df)
+    print(df2.head())
