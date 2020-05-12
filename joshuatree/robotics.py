@@ -2,11 +2,12 @@
 
 
 class Brain():
-    def __init__(self, imu, range_find, computer, controller):
+    def __init__(self, imu, range_find, computer, controller,camera):
         self.imu = imu
         self.range_find = range_find
         self.computer = computer
         self.controller = controller
+        self.camera = camera
 
     def locate(self):
         print(f'Locating axis... with {self.imu}')
