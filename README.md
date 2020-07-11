@@ -2,9 +2,9 @@
 Python Package 
 
 ## Installation
-
+```
 pip install -i https://test.pypi.org/simple/ joshuatree==1.3
-
+```
 ## Usage
 
 ### Pobabililty of true given a positive test result
