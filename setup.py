@@ -7,7 +7,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name="joshuatree", 
-    version="1.2",
+    version="1.3",
     author="joshua piche",
     author_email="jpiche92@gmail.com",
     description="Learning Experience",
