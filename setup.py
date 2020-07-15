@@ -7,7 +7,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name="joshuatree", 
-    version="1.3",
+    version="0.0.4",
     author="joshua piche",
     author_email="jpiche92@gmail.com",
     description="Learning Experience",
@@ -18,3 +18,10 @@ setup(
     #keywords="",
     packages=find_packages() # ["my_lambdata"]
 )
+
+
+# python setup.py sdist bdist_wheel
+# twine upload --repository-url https://test.pypi.org/legacy/ dist/*
+# OR, if you see 403 "file already exists" errors:
+# twine upload --skip-existing --repository-url https://test.pypi.org/legacy/ dist/*
+

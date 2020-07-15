@@ -25,9 +25,6 @@ class Brain():
 
 if __name__ == '__main__':
 
-    hardware = Brain('interial','range finder','pi','ad')
+    hardware = Brain('interial','range finder','pi','ad','1080p')
     print(hardware.imu,'and', hardware.range_find)
     hardware.calculate()
-
-
-    
