@@ -2,12 +2,16 @@
 
 # abbreviation dictionaries
 
-def state_abbreviations(X):
+def state_abbreviations(df, state_col):
     '''    
-    parameters: 
-                - series of USA state abbreviations with the column name 'abbrev'
+    param: 
+        df :: A pandas.DataFrame object
+
+        state_col :: A pandas.Series object containing the abbreviations to transliterate
+                     
+
     return: 
-                - a pandas.Series object of the spelled out state names
+        A new pandas.DataFrame object with the of the spelled out state names
     '''
     
     state_abv_dict = {'al':'Alabama','ak':'Alaska','az':'Arizona','ar':'Arkansas','ca':'California',
@@ -22,17 +26,20 @@ def state_abbreviations(X):
                       'tn':'Tennessee','tx':'Texas','ut':'Utah','vt':'Vermont','va':'Virginia',
                       'wa':'Washington','wv':'West Virginia','wi':'Wisconsin','wy':'Wyoming','pr':'Puerto Rico'}
     
+    # Create working copy
+    converted_df = df.copy()
+    # Lowercase the series
+    converted_df['state'] = state_col.str.lower()
+    # Map the values 
+    converted_df['state'] = converted_df['state'].map(state_abv_dict)
     
-    X = X.copy()
-    X = X['abbrev'].str.lower()
-    X = X.map(state_abv_dict)
-    return X
+    return converted_df
 
 if __name__ == '__main__':
     from pandas import DataFrame
     from pandas import Series
-    df = DataFrame({'abbrev':["CA","CO","CT","DC","TX"]})
+    df = DataFrame({'state':["CA","CO","CT","DC","TX"]})
     print(df.head())
     
-    df2 = state_abbreviations(df)
+    df2 = state_abbreviations(df, df['state'])
     print(df2.head())

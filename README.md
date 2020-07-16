@@ -3,7 +3,7 @@ Python Package
 
 ## Installation
 ```
-pip install -i https://test.pypi.org/simple/ joshuatree==1.3
+pip install -i https://test.pypi.org/simple/ joshuatree==0.0.5
 ```
 ## Usage
 
