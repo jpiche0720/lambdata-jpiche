@@ -2,32 +2,35 @@
 
 
 
-def prob_true_given_positive(p_true_prior,
-                             false_positive_rate,
-                             true_positive_rate):
+def prob_true_given_positive(ptp, fpr, tpr, ci=0.99):
       '''
+      Probability of True Given a Positive Test Result using Bayes Therom
+      
       param:
-          - probability of being true prior to test
-          - false positive rate
-          - true positive rate
+            ptp :: probability of being true prior to test
+
+            fpr :: false positive rate
+
+            tpr :: true positive rate
+
+            ci :: confidence interval (default .99)
 
       return:
-          - the probability of being true given a positive test result
-          - the number of tests to complete to be confident in the result
+            The test results for each test until desired confidence is reached. 
       '''
       probs = []
-      complement = 1 - p_true_prior
-      a = true_positive_rate*p_true_prior
-      b = (true_positive_rate*p_true_prior) + (false_positive_rate*complement)
+      complement = 1 - ptp
+      a = tpr*ptp
+      b = (tpr*ptp) + (fpr*complement)
       posterior_probability = a/b
-      sure = 1
+      sure = ci
       unsure = 0
       while unsure < sure:
             complement = 1 - posterior_probability
             probs.append(posterior_probability)
             if posterior_probability < 1:
-                  a = true_positive_rate*posterior_probability
-                  b = (true_positive_rate*posterior_probability) + (false_positive_rate*complement)
+                  a = tpr*posterior_probability
+                  b = (tpr*posterior_probability) + (fpr*complement)
             posterior_probability = a/b
             unsure = round(posterior_probability, 2)
       

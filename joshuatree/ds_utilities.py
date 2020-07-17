@@ -24,8 +24,10 @@ def csv_download_link(df, csv_file_name):
 
 def insert_row(df, row_number, row_value):
     '''
+    Insert a row into datframe while maintaining the index
+    
     param:
-        X :: A pandas.DataFrame object with a numerical index
+        df :: A pandas.DataFrame object with a numerical index
 
         row_number :: The index in which the new row will take
 
